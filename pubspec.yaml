@@ -17,6 +17,7 @@ dependencies:
     path: hms/huawei_map
   huawei_push:
     path: huawei_push
+  custom_info_window: ^1.0.1
 
 dev_dependencies:
   flutter_test:
