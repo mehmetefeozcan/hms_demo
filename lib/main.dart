@@ -31,7 +31,22 @@ class _HuaweiMapDemoState extends State<HuaweiMapDemo> {
   static const LatLng _center = LatLng(41.012959, 28.997438);
   static const double _zoom = 12;
 
-  final Set<Marker> markers = <Marker>{};
+  final Set<Marker> markers = <Marker>{
+    Marker(
+      markerId: MarkerId("1"),
+      position: LatLng(41.048641, 28.977033),
+      infoWindow: const InfoWindow(title: "Hint Kumaşı"),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
+      clusterable: true,
+    ),
+    Marker(
+      markerId: MarkerId("2"),
+      position: LatLng(41.059814, 28.979799),
+      infoWindow: const InfoWindow(title: "Antidepresan"),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+      clusterable: true,
+    )
+  };
   int id = 0;
 
   @override
@@ -43,9 +58,11 @@ class _HuaweiMapDemoState extends State<HuaweiMapDemo> {
   createMarker(double lat, double lng) {
     setState(() {
       final marker = Marker(
-        markerId: MarkerId("${id + 1}"),
+        markerId: MarkerId((id + 1).toString()),
         position: LatLng(lat, lng),
         infoWindow: const InfoWindow(title: "Antidepresan"),
+        icon:
+            BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueMagenta),
       );
       markers.add(marker);
     });
